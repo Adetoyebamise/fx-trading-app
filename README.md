@@ -14,7 +14,7 @@ Start the development server (remember to put in the right environment variables
  npm run start:dev
 ```
 
-The API is also documented via [postman](https://api.postman.com/collections/15331534-deff08fe-f480-4d9b-a4de-19db596080a2?access_key=PMAT-01HE5ESHFC51XFCB063YJN2SS9) 
+The API is also documented via [postman]
 
 You can try out the transactions functionality for free using the cards credentials(Card Number, CVVs, expiry) in the documentation
 
