@@ -2,7 +2,7 @@
 
 ## Description
 
-To get started with this project, clone the repo by running the command git clone https://github.com/Adetoyebamise/multicurrency-wallet.git or downloading the zip file
+To get started with this project, clone the repo by running the command git clone https://github.com/Adetoyebamise/fx-trading-app.git or downloading the zip file
 
 In the root of the project run the following command
 
