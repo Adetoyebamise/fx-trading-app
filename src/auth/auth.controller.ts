@@ -1,5 +1,9 @@
 import { Controller, Body, Post, Res } from '@nestjs/common';
-import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+import {
+  AuthCredentialsDto,
+  AuthCredentialsSignInDto,
+  AuthCredentialsVerifyUserDto,
+} from './dto/auth-credentials.dto';
 import { AuthService } from './auth.service';
 import { Response } from 'express';
 
@@ -7,16 +11,24 @@ import { Response } from 'express';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @Post('/signup')
+  @Post('/register')
   signUp(@Body() authCredentialsDto: AuthCredentialsDto): Promise<void> {
     return this.authService.signUp(authCredentialsDto);
   }
 
   @Post('/signin')
   signIn(
-    @Body() authCredentialsDto: AuthCredentialsDto,
+    @Body() authCredentialsSignInDto: AuthCredentialsSignInDto,
     @Res() res: Response,
   ): Promise<any> {
-    return this.authService.signIn(authCredentialsDto, res);
+    return this.authService.signIn(authCredentialsSignInDto, res);
+  }
+
+  @Post('/verify')
+  verifyUser(
+    @Body() authCredentialsVerifyUserDto: AuthCredentialsVerifyUserDto,
+    @Res() res: Response,
+  ): Promise<any> {
+    return this.authService.verifyUser(authCredentialsVerifyUserDto);
   }
 }

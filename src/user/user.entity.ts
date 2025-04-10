@@ -8,7 +8,7 @@ import {
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
-import { Role } from './role.entity';
+import { Role } from '../role/role.entity';
 
 @Entity('users')
 @Unique(['email'])
@@ -24,6 +24,9 @@ export class User {
 
   @Column()
   password: string;
+
+  @Column()
+  emailToken: string;
 
   @Column({ default: false })
   isVerified: boolean;

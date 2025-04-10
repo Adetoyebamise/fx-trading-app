@@ -2,8 +2,12 @@ import { Response } from 'express';
 import { generateJWT } from '../utils/helper';
 import { UserAuthObject } from '../utils/helper';
 import { Injectable } from '@nestjs/common';
-import { AuthCredentialsDto } from './dto/auth-credentials.dto';
-import { UserRepository } from './user.repository';
+import {
+  AuthCredentialsDto,
+  AuthCredentialsSignInDto,
+  AuthCredentialsVerifyUserDto,
+} from './dto/auth-credentials.dto';
+import { UserRepository } from '../user/user.repository';
 import { AppError } from '../errors/appError';
 import { EINVALID, descriptions } from '../errors/index';
 import * as bcrypt from 'bcrypt';
@@ -19,11 +23,11 @@ export class AuthService {
   }
 
   async signIn(
-    authCredentialsDto: AuthCredentialsDto,
+    authCredentialsSignInDto: AuthCredentialsSignInDto,
     res: Response,
   ): Promise<Response | void> {
     try {
-      const { email, password } = authCredentialsDto;
+      const { email, password } = authCredentialsSignInDto;
       const user = await this.userRepository.findByEmail(email);
       console.log('user', user);
       if (!user) {
@@ -58,6 +62,37 @@ export class AuthService {
         data: { token: jwt, user: payload },
       });
     } catch (e) {
+      throw new AppError({
+        errorType: EINVALID,
+        appErrorCode: '',
+        error: descriptions.ErrorRequestDenied,
+      });
+    }
+  }
+
+  async verifyUser(
+    authCredentialsVerifyUserDto: AuthCredentialsVerifyUserDto,
+  ): Promise<any> {
+    try {
+      const { email, emailToken } = authCredentialsVerifyUserDto;
+      const user = await this.userRepository.findOneByEmailToken(emailToken);
+
+      if (!user) {
+        throw new AppError({
+          errorType: EINVALID,
+          appErrorCode: '',
+          error: descriptions.ErrorRequestDenied,
+        });
+      }
+
+      // If the verifiableUser exists, update the email verification status
+      user.emailToken = '';
+      user.isVerified = true;
+
+      // user = await this.userRepository.save(user);
+
+      return user;
+    } catch (error) {
       throw new AppError({
         errorType: EINVALID,
         appErrorCode: '',

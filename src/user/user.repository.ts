@@ -1,10 +1,11 @@
 import { DataSource, Repository } from 'typeorm';
 import { User } from './user.entity';
-import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+import { AuthCredentialsDto } from '../auth/dto/auth-credentials.dto';
 import { Nodemailer } from '../services/NodeMailer/service';
 import { AppError } from '../errors/appError';
 import { ECONFLICT, ErrorUserExists, descriptions } from '../errors/index';
 import * as bcrypt from 'bcrypt';
+import { AlphaNumeric } from 'src/utils/helper';
 
 export class UserRepository {
   private userRepository: Repository<User>;
@@ -33,7 +34,8 @@ export class UserRepository {
         });
       }
     });
-    const html = `<h1>Welcome to our Fx trading platform</h1><p>Thanks for signing up, ${email}!</p>`;
+    const emailToken = AlphaNumeric(4);
+    const html = `<h1>Welcome to our Fx trading platform</h1><p>Thanks for signing up, ${email} , Please verify your account with this Code ${emailToken}!</p>`;
 
     const sendEmailToUser = await this.sendEmailToUser.sendEmailToUser(
       email,
@@ -46,5 +48,9 @@ export class UserRepository {
 
   async findByEmail(email: string): Promise<User | null> {
     return await this.userRepository.findOneBy({ email });
+  }
+
+  async findOneByEmailToken(emailToken: string): Promise<User | null> {
+    return await this.userRepository.findOne({ where: { emailToken } });
   }
 }

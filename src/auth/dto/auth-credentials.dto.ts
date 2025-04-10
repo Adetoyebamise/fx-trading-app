@@ -20,3 +20,23 @@ export class AuthCredentialsDto {
   })
   password: string;
 }
+
+export class AuthCredentialsSignInDto {
+  @IsString()
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @MinLength(6, { message: 'Password is too short' })
+  @MaxLength(20, { message: 'Password is too long' })
+  password: string;
+}
+
+export class AuthCredentialsVerifyUserDto {
+  @IsString()
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  emailToken: string;
+}
