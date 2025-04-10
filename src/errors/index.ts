@@ -33,4 +33,5 @@ export const descriptions = {
   ErrorUserNotFound: 'User Not Found',
   ErrorUpdatingUserPassword: 'Error Updating User Password',
   ErrorUsernameOrPassword: 'Username or Password Incorrect',
+  ErrorRequestDenied: 'Cant request resource',
 };

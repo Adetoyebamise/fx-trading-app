@@ -81,6 +81,5 @@ export const formatPhone = (phone: string) => {
 
 export type UserAuthObject = {
   id: string;
-  status: string;
-  bvnStatus: boolean;
+  email: string;
 };
