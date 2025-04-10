@@ -89,6 +89,7 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 APIs'
 
+```sh
 `curl -XPOST "http://127.0.0.1:3000/auth/signup" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
     -H "Content-type: application/json" \
@@ -96,7 +97,8 @@ APIs'
         "email": "andris@example.com",
         "password": "andris123"
     }'
-`
+```
+```sh
 `curl -XPOST "http://127.0.0.1:3000/auth/signin" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
     -H "Content-type: application/json" \
@@ -104,7 +106,8 @@ APIs'
         "email": "andris@example.com",
         "password": "andris123"
     }'
-`
+```
+```sh
 `curl -XPOST "http://127.0.0.1:3000/auth/verify" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
     -H "Content-type: application/json" \
@@ -112,4 +115,4 @@ APIs'
         "email": "andris@example.com",
         "emailToken": "5632"
     }'
-`
+```
