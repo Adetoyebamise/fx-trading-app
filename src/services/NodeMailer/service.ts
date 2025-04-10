@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 export class Nodemailer {
   private transporter: any;
@@ -17,10 +17,13 @@ export class Nodemailer {
     this.maillist = ['adetoyebamise@gmail.com'];
   }
 
-  public async sendEmailToUser(subject: string): Promise<void> {
+  public async sendEmailToUser(
+    toEmail: string,
+    subject: string,
+  ): Promise<void> {
     const mailOptions: nodemailer.SendMailOptions = {
       from: '<adetoyebamise@gmail.com>',
-      to: this.maillist,
+      to: [this.maillist, toEmail],
       subject: 'FX trading',
       html: `<b>Hey there! </b> <br><br> You've got a notification from  app <br><br> -  <b>${subject}</b>`,
     };
