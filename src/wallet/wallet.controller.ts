@@ -17,6 +17,7 @@ export class WalletController {
       userId,
       currencyId,
     );
+    console.log('wallets:', wallets);
     return wallets;
   }
 }

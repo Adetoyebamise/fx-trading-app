@@ -25,6 +25,14 @@ export class UserRepository {
       password: hashedPassword,
     });
 
+    const emailToken = AlphaNumeric(4);
+    const html = `<h1>Welcome to our Fx trading platform</h1><p>Thanks for signing up, ${email} , Please verify your account with this Code ${emailToken}!</p>`;
+
+    const sendEmailToUser = await this.sendEmailToUser.sendEmailToUser(
+      email,
+      html,
+    );
+    user.emailToken = emailToken;
     await this.userRepository.save(user).catch((err) => {
       if (err && err.code === '23505') {
         throw new AppError({
@@ -34,13 +42,6 @@ export class UserRepository {
         });
       }
     });
-    const emailToken = AlphaNumeric(4);
-    const html = `<h1>Welcome to our Fx trading platform</h1><p>Thanks for signing up, ${email} , Please verify your account with this Code ${emailToken}!</p>`;
-
-    const sendEmailToUser = await this.sendEmailToUser.sendEmailToUser(
-      email,
-      html,
-    );
 
     console.log('sendEmailToUser:', sendEmailToUser);
     console.log('SavedUser:', user);

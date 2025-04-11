@@ -16,9 +16,17 @@ import * as bcrypt from 'bcrypt';
 export class AuthService {
   constructor(private userRepository: UserRepository) {}
 
-  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async signUp(
+    authCredentialsDto: AuthCredentialsDto,
+    res: Response,
+  ): Promise<void> {
     const user = await this.userRepository.createUser(authCredentialsDto);
-    return user;
+    console.log('user in service', user);
+    res.status(201).json({
+      status: 'success',
+      message: 'User successful',
+      data: user,
+    });
   }
 
   async signIn(
