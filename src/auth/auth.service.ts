@@ -11,7 +11,6 @@ import { UserRepository } from '../user/user.repository';
 import { AppError } from '../errors/appError';
 import { EINVALID, descriptions } from '../errors/index';
 import * as bcrypt from 'bcrypt';
-import { Res } from '@nestjs/common';
 
 @Injectable()
 export class AuthService {

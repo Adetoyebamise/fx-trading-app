@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { User } from './user/user.entity';
 import { Role } from './role/role.entity';
+import { WalletModule } from './wallet/wallet.module';
+import { CurrencyModule } from './currency/currency.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { Role } from './role/role.entity';
       logging: true,
     }),
     AuthModule,
+    WalletModule,
+    CurrencyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

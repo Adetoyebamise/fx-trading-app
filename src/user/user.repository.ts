@@ -53,4 +53,12 @@ export class UserRepository {
   async findOneByEmailToken(emailToken: string): Promise<User | null> {
     return await this.userRepository.findOne({ where: { emailToken } });
   }
+
+  async findOneByUserId(userId: string): Promise<User | null> {
+    return await this.userRepository.findOne({
+      where: { id: userId },
+      relations: ['currency'],
+      // select: ['id', 'balance'],
+    });
+  }
 }

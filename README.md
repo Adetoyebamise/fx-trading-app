@@ -16,8 +16,6 @@ Start the development server (remember to put in the right environment variables
  npm run start:dev
 ```
 
-You can try out the transactions functionality for free using the cards credentials(Card Number, CVVs, expiry) in the documentation
-
 ### Containerizing the API
 
 #### Build the initial docker image
@@ -116,3 +114,9 @@ APIs'
         "emailToken": "5632"
     }'
 ```
+```sh
+`
+curl -XGET "http://localhost:3000/wallet/123?currency=USD" \
+     -H "Authorization:  Bearer f77cf263b704...9793022df08d91b9"
+`
+```sh

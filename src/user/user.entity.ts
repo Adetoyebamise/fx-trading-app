@@ -7,8 +7,10 @@ import {
   CreateDateColumn,
   Unique,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import { Role } from '../role/role.entity';
+import { Wallet } from '../wallet/wallet.entity';
 
 @Entity('users')
 @Unique(['email'])
@@ -34,6 +36,9 @@ export class User {
   @ManyToOne(() => Role)
   @JoinColumn({ name: 'role_id' })
   role: Role;
+
+  @OneToMany(() => Wallet, (wallet) => wallet.user)
+  wallets: Wallet[];
 
   @CreateDateColumn()
   createdAt?: Date;
