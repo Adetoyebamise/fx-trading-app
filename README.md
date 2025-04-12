@@ -120,10 +120,9 @@ APIs'
     }'
 ```
 
-````sh
+```sh
 `
 curl -XGET "http://localhost:3000/wallet/123?currency=USD" \
      -H "Authorization:  Bearer f77cf263b704...9793022df08d91b9"
 `
-```sh
-````
+```

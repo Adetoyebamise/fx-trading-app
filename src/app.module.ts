@@ -7,6 +7,8 @@ import { User } from './user/user.entity';
 import { Role } from './role/role.entity';
 import { WalletModule } from './wallet/wallet.module';
 import { CurrencyModule } from './currency/currency.module';
+import { FxModule } from './fx/fx.module';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -25,6 +27,8 @@ import { CurrencyModule } from './currency/currency.module';
     AuthModule,
     WalletModule,
     CurrencyModule,
+    FxModule,
+    TransactionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
