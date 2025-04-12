@@ -1,4 +1,6 @@
 import * as nodemailer from 'nodemailer';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export class Nodemailer {
   private transporter: any;
@@ -6,12 +8,12 @@ export class Nodemailer {
 
   constructor() {
     this.transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com ',
+      host: 'smtp.gmail.com',
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS, //process.env.MAIL_PASS,
+        user: 'adetoyebamise@gmail.com',
+        pass: 'xrygeydnpygumtpj',
       },
     });
     this.maillist = ['adetoyebamise@gmail.com'];

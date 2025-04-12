@@ -26,7 +26,7 @@ export class UserRepository {
     });
 
     const emailToken = AlphaNumeric(4);
-    const html = `<h1>Welcome to our Fx trading platform</h1><p>Thanks for signing up, ${email} , Please verify your account with this Code ${emailToken}!</p>`;
+    const html = `<h1>Welcome to our Fx trading platform</h1><p>Thanks for signing up, ${email} , Please verify your account with this Code ${emailToken}</p>`;
 
     const sendEmailToUser = await this.sendEmailToUser.sendEmailToUser(
       email,
@@ -61,5 +61,9 @@ export class UserRepository {
       relations: ['currency'],
       // select: ['id', 'balance'],
     });
+  }
+
+  async save(user: User): Promise<User> {
+    return await this.userRepository.save(user);
   }
 }

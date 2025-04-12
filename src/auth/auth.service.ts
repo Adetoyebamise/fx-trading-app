@@ -24,7 +24,7 @@ export class AuthService {
     console.log('user in service', user);
     res.status(201).json({
       status: 'success',
-      message: 'User successful',
+      message: 'User Registration successful',
       data: user,
     });
   }
@@ -79,10 +79,11 @@ export class AuthService {
 
   async verifyUser(
     authCredentialsVerifyUserDto: AuthCredentialsVerifyUserDto,
-  ): Promise<any> {
+    res: Response,
+  ): Promise<Response | void> {
     try {
       const { email, emailToken } = authCredentialsVerifyUserDto;
-      const user = await this.userRepository.findOneByEmailToken(emailToken);
+      let user = await this.userRepository.findOneByEmailToken(emailToken);
 
       if (!user) {
         throw new AppError({
@@ -96,9 +97,13 @@ export class AuthService {
       user.emailToken = '';
       user.isVerified = true;
 
-      // user = await this.userRepository.save(user);
+      user = await this.userRepository.save(user);
 
-      return user;
+      res.status(200).json({
+        status: 'success',
+        message: 'User Verified successful',
+        data: { user: user },
+      });
     } catch (error) {
       throw new AppError({
         errorType: EINVALID,

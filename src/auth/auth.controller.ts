@@ -32,6 +32,6 @@ export class AuthController {
     @Body() authCredentialsVerifyUserDto: AuthCredentialsVerifyUserDto,
     @Res() res: Response,
   ): Promise<any> {
-    return this.authService.verifyUser(authCredentialsVerifyUserDto);
+    return this.authService.verifyUser(authCredentialsVerifyUserDto, res);
   }
 }
