@@ -45,10 +45,6 @@ To run the container, use the following command:
 - Ensure the PR is made to the `dev` branch so it can be reviewed before it gets merged to the main branch (we are currently looking to implement a CI/CD pipeline as soon as possible) so as to automate things and reduce room for human error
 - The code architecture and design pattern for the PR should be consistent with the existing codebase
 
-## Stay in touch
-
-- Author - [Adetoye Babalola](https://www.linkedin.com/in/adetoye-babalola-355118167/)
-- Twitter - [@adetoyebamise](https://twitter.com/Adetoyebamise)
 
 ## Project setup
 
@@ -91,38 +87,43 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 APIs'
 
 ```sh
-`curl -XPOST "http://127.0.0.1:3000/auth/signup" \
+curl -XPOST "http://127.0.0.1:3000/auth/signup" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
     -H "Content-type: application/json" \
     -d '{
         "email": "andris@example.com",
         "password": "andris123"
-    }'
+    }
 ```
 
 ```sh
-`curl -XPOST "http://127.0.0.1:3000/auth/signin" \
+curl -XPOST "http://127.0.0.1:3000/auth/signin" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
     -H "Content-type: application/json" \
     -d '{
         "email": "andris@example.com",
         "password": "andris123"
-    }'
+    }
 ```
 
 ```sh
-`curl -XPOST "http://127.0.0.1:3000/auth/verify" \
+curl -XPOST "http://127.0.0.1:3000/auth/verify" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
     -H "Content-type: application/json" \
     -d '{
         "email": "andris@example.com",
         "emailToken": "5632"
-    }'
+    }
 ```
 
 ```sh
-`
 curl -XGET "http://localhost:3000/wallet/123?currency=USD" \
      -H "Authorization:  Bearer f77cf263b704...9793022df08d91b9"
-`
+
 ```
+
+
+## Stay in touch
+
+- Author - [Adetoye Babalola](https://www.linkedin.com/in/adetoye-babalola-355118167/)
+- Twitter - [@adetoyebamise](https://twitter.com/Adetoyebamise)
