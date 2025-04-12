@@ -2,6 +2,10 @@
 
 ## Description
 
+This technical assessment outlines the development of a backend FX Trading App using NestJS, focusing on creating a multi-currency wallet system that enables users to register, verify their email, fund their wallet, and perform currency conversions. The application requires real-time FX rate integration, secure transaction handling, and a robust architecture that supports multiple currencies while ensuring data consistency, preventing double-spending, and maintaining comprehensive transaction history.
+
+## Contribution
+
 To get started with this project, clone the repo by running the command git clone https://github.com/Adetoyebamise/fx-trading-app.git or downloading the zip file
 
 In the root of the project run the following command
@@ -84,7 +88,6 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ![alt text](image.png)
 
-
 APIs'
 
 ```sh
@@ -96,6 +99,7 @@ APIs'
         "password": "andris123"
     }'
 ```
+
 ```sh
 `curl -XPOST "http://127.0.0.1:3000/auth/signin" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
@@ -105,6 +109,7 @@ APIs'
         "password": "andris123"
     }'
 ```
+
 ```sh
 `curl -XPOST "http://127.0.0.1:3000/auth/verify" \
     -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
@@ -114,9 +119,11 @@ APIs'
         "emailToken": "5632"
     }'
 ```
-```sh
+
+````sh
 `
 curl -XGET "http://localhost:3000/wallet/123?currency=USD" \
      -H "Authorization:  Bearer f77cf263b704...9793022df08d91b9"
 `
 ```sh
+````
