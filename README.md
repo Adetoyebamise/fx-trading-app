@@ -38,9 +38,9 @@ To run the container, use the following command:
 
 - The server will be running on [localhost:3000](http://0.0.0.0:3000)
 
-## CONTRIBUTING TO Multicurrency WALLET
+## CONTRIBUTING TO fx trading WALLET
 
-#### While the Multicurrency-wallet project is completely free to use and open source, here are a few things to note when making Pull Requests
+#### While the fx-trading-wallet project is completely free to use and open source, here are a few things to note when making Pull Requests
 
 - Ensure the PR is made to the `dev` branch so it can be reviewed before it gets merged to the main branch (we are currently looking to implement a CI/CD pipeline as soon as possible) so as to automate things and reduce room for human error
 - The code architecture and design pattern for the PR should be consistent with the existing codebase
