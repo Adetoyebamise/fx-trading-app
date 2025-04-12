@@ -78,7 +78,6 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## Database Diagram
 
@@ -127,3 +126,5 @@ curl -XGET "http://localhost:3000/wallet/123?currency=USD" \
 
 - Author - [Adetoye Babalola](https://www.linkedin.com/in/adetoye-babalola-355118167/)
 - Twitter - [@adetoyebamise](https://twitter.com/Adetoyebamise)
+
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
