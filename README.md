@@ -120,6 +120,9 @@ curl -XGET "http://localhost:3000/wallet/123?currency=USD" \
      -H "Authorization:  Bearer f77cf263b704...9793022df08d91b9"
 
 ```
+POSTMAN API Docs :
+
+https://api.postman.com/collections/15331534-fafec324-ee7d-4c78-a967-636ac55b0420?access_key=PMAT-01JRR0Q753A26KKB4YHJNXPXCT
 
 
 ## Stay in touch
