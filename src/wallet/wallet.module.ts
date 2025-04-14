@@ -8,6 +8,7 @@ import { Wallet } from './wallet.entity';
 import { User } from '../user/user.entity';
 import { Currency } from 'src/currency/currency.entity';
 import { UserRepository } from 'src/user/user.repository';
+import { CurrencyRepository } from 'src/currency/currency.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Wallet, User, Currency])],
@@ -24,6 +25,13 @@ import { UserRepository } from 'src/user/user.repository';
       provide: UserRepository,
       useFactory: (dataSource: DataSource) => {
         return new UserRepository(dataSource);
+      },
+      inject: [DataSource],
+    },
+    {
+      provide: CurrencyRepository,
+      useFactory: (dataSource: DataSource) => {
+        return new CurrencyRepository(dataSource);
       },
       inject: [DataSource],
     },

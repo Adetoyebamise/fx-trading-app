@@ -124,7 +124,6 @@ POSTMAN API Docs :
 
 https://api.postman.com/collections/15331534-fafec324-ee7d-4c78-a967-636ac55b0420?access_key=PMAT-01JRR0Q753A26KKB4YHJNXPXCT
 
-
 ## Stay in touch
 
 - Author - [Adetoye Babalola](https://www.linkedin.com/in/adetoye-babalola-355118167/)

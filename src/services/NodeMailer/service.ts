@@ -10,7 +10,7 @@ export class Nodemailer {
     this.transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
-      secure: true, // true for 465, false for other ports
+      secure: true,
       auth: {
         user: 'adetoyebamise@gmail.com',
         pass: 'xrygeydnpygumtpj',

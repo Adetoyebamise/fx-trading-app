@@ -39,6 +39,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/require-await': 'off',
       '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/await-thenable': 'off',
     },
   },
 );
