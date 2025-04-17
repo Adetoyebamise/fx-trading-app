@@ -30,6 +30,7 @@ export class Nodemailer {
       html: `<b>Hey there! </b> <br><br> You've got a notification from  app <br><br> -  <b>${subject}</b>`,
     };
     try {
+      console.log('Sending email to: I got here here and here');
       const info = await this.transporter.sendMail(mailOptions);
       console.log('Email sent:', info.response);
     } catch (error) {

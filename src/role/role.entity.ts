@@ -4,8 +4,8 @@ import { OneToMany } from 'typeorm/decorator/relations/OneToMany';
 
 @Entity('roles')
 export class Role {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   name: string;

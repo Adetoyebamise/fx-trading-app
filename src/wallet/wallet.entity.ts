@@ -11,8 +11,8 @@ import { Currency } from 'src/currency/currency.entity';
 
 @Entity('wallets')
 export class Wallet {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @ManyToOne(() => User, (user) => user.wallets)
   @JoinColumn({ name: 'user_id' })

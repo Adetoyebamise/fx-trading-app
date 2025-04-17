@@ -83,6 +83,25 @@ $ npm run test:cov
 
 ![alt text](image.png)
 
+
+## Manual Seeding of the database;
+
+```sh
+INSERT INTO roles (name) VALUES ('User');
+```
+
+```sh
+INSERT INTO roles (name) VALUES ('Admin');
+```
+
+```sh
+INSERT INTO currencies (code, name, symbol)
+VALUES 
+  ('USD', 'US Dollar', '$'),
+  ('EUR', 'Euro', '€'),
+  ('NGN', 'Naira', '₦');
+```
+
 APIs'
 
 ```sh
@@ -120,6 +139,18 @@ curl -XGET "http://localhost:3000/wallet/123?currency=USD" \
      -H "Authorization:  Bearer f77cf263b704...9793022df08d91b9"
 
 ```
+
+```sh
+curl -XPOST "http://127.0.0.1:3000/wallet/fund" \
+    -H "Authorization: Bearer f77cf263b704...9793022df08d91b9" \
+    -H "Content-type: application/json" \
+    -d '{
+        "userId": "827ed49f-6cbe-41ce-a3cf-086176fa2e79",
+        "currencyId": "827ed49f-6cbe-41ce-a3cf-086176fa2e43",
+        "amount" : "43000"
+}
+```
+
 POSTMAN API Docs :
 
 https://api.postman.com/collections/15331534-fafec324-ee7d-4c78-a967-636ac55b0420?access_key=PMAT-01JRR0Q753A26KKB4YHJNXPXCT

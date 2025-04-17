@@ -10,7 +10,7 @@ export class CurrencyRepository {
 
   async findeOneById(id: string): Promise<Currency | null> {
     return await this.CurrencyRepository.findOne({
-      where: { id: Number(id) },
+      where: { id: id },
     });
   }
 }

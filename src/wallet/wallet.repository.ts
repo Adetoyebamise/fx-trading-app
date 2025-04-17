@@ -23,7 +23,7 @@ export class WalletRepository {
   }
   async findOneByCurrencyId(currencyId: string): Promise<Wallet | null> {
     return await this.WalletRepository.findOne({
-      where: { currency: { id: Number(currencyId) } },
+      where: { currency: { id: currencyId } },
     });
   }
   async findOneByUserIdAndCurrencyId(
@@ -31,13 +31,13 @@ export class WalletRepository {
     currencyId: string,
   ): Promise<Wallet | null> {
     return await this.WalletRepository.findOne({
-      where: { user: { id: userId }, currency: { id: Number(currencyId) } },
+      where: { user: { id: userId }, currency: { id: currencyId } },
     });
   }
 
   async findOneById(id: string): Promise<Wallet | null> {
     return await this.WalletRepository.findOne({
-      where: { id: Number(id) },
+      where: { id: id },
     });
   }
 }

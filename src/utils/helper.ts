@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import * as Crypto from 'crypto';
 
 export const OTPGenerator = (max: number, alphanumeric = false): string => {
   const digits = !alphanumeric

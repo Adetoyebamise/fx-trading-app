@@ -27,11 +27,13 @@ export class WalletController {
     @Body('currencyId') currencyId: string,
     @Body('amount') amount: number,
     @Res() res: Response,
-  ): Promise<any> {
+  ): Promise<void> {
+    console.log('userId:', userId, currencyId, amount);
     const wallets = await this.walletService.fundWallet(
       userId,
       currencyId,
       amount,
+      res,
     );
     console.log('wallets:', wallets);
     return wallets;

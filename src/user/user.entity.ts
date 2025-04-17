@@ -11,6 +11,7 @@ import {
 } from 'typeorm';
 import { Role } from '../role/role.entity';
 import { Wallet } from '../wallet/wallet.entity';
+import { Currency } from '../currency/currency.entity';
 
 @Entity('users')
 @Unique(['email'])
@@ -39,6 +40,10 @@ export class User {
 
   @OneToMany(() => Wallet, (wallet) => wallet.user)
   wallets: Wallet[];
+
+  @ManyToOne(() => Currency)
+  @JoinColumn({ name: 'currency_id' })
+  currency: Currency;
 
   @CreateDateColumn()
   createdAt?: Date;

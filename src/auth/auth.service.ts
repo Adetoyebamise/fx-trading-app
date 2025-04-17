@@ -94,6 +94,16 @@ export class AuthService {
       }
 
       // If the verifiableUser exists, update the email verification status
+      // await this.userRepository
+      //   .createQueryBuilder('user')
+      //   .update()
+      //   .set({
+      //     emailToken: '',
+      //     isVerified: true,
+      //   })
+      //   .where('user.email = :email', { email: user.email })
+      //   .execute();
+
       user.emailToken = '';
       user.isVerified = true;
 
